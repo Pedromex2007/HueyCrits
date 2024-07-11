@@ -13,10 +13,10 @@
   "LoadPriority": 0,
   "IsHide": false,
   "IsTestingExclusive": false,
-  "Punchline": "Based Long",
   "DownloadLinkInstall": "https://github.com/Pedromex2007/HueyCrits/releases/download/RC/latest.zip",
   "DownloadLinkTesting": "https://github.com/Pedromex2007/HueyCrits/releases/download/RC/latest.zip",
   "DownloadLinkUpdate": "https://github.com/Pedromex2007/HueyCrits/releases/download/RC/latest.zip",
   "DownloadCount": 0,
-  "LastUpdated": "1720476399"
+  "LastUpdate": "0"
+  "IconUrl": "https://raw.githubusercontent.com/Pedromex2007/HueyCrits/master/Data/icon.png"
 }
