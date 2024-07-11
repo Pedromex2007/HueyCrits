@@ -43,7 +43,6 @@ public sealed class Plugin : IDalamudPlugin
 
         // you might normally want to embed resources and load them from the manifest stream
         var goatImagePath = Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "fakegoat.png");
-        var musicPath = Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "golfwithyourfriends-superpapermairo.wav");
 
         pluginDirectory = PluginInterface.AssemblyLocation.Directory?.FullName!;
 
@@ -54,7 +53,6 @@ public sealed class Plugin : IDalamudPlugin
 
         WindowSystem.AddWindow(ConfigWindow);
         WindowSystem.AddWindow(MainWindow);
-        SoundEngine.PlaySound(musicPath);
 
 
         //WindowSystem.RemoveWindow(ConfigWindow);

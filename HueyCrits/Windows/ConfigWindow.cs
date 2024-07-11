@@ -42,7 +42,7 @@ public class ConfigWindow : Window, IDisposable
     {
         // can't ref a property, so use a local copy
         var configValue = Configuration.SoundEnabled;
-        if (ImGui.Checkbox("Enabled Huey speech clips on crit.", ref configValue))
+        if (ImGui.Checkbox("Enable Huey speech clips on crit.", ref configValue))
         {
             Configuration.SoundEnabled = configValue;
             // can save immediately on change, if you don't want to provide a "Save and Close" button
