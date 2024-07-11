@@ -1,22 +1,24 @@
-{
-  "Author": "Pedromex2007",
-  "Name": "Huey Criticals",
-  "Punchline": "Picture of the blessed Huey P. Long will cover you screen to praise your crits.",
-  "Description": "Any time you get a critical or direct hit, Huey Long will personally invite himself into your computer to sing your praises. Based Huey Long. Every Man a King.",
-  "ApplicableVersion": "any",
-  "RepoUrl": "https://github.com/Pedromex2007/HueyCrits",
-  "Tags": [
-    "huey",
-    "plugin",
-  ]
-  "DalamudApiLevel": 10,
-  "LoadPriority": 0,
-  "IsHide": false,
-  "IsTestingExclusive": false,
-  "DownloadLinkInstall": "https://github.com/Pedromex2007/HueyCrits/releases/download/RC/latest.zip",
-  "DownloadLinkTesting": "https://github.com/Pedromex2007/HueyCrits/releases/download/RC/latest.zip",
-  "DownloadLinkUpdate": "https://github.com/Pedromex2007/HueyCrits/releases/download/RC/latest.zip",
-  "DownloadCount": 0,
-  "LastUpdate": "0"
-  "IconUrl": "https://raw.githubusercontent.com/Pedromex2007/HueyCrits/master/Data/icon.png"
-}
+[
+	{
+	  "Author": "Pedromex2007",
+	  "Name": "Huey Criticals",
+	  "Punchline": "Picture of the blessed Huey P. Long will cover you screen to praise your crits.",
+	  "Description": "Any time you get a critical or direct hit, Huey Long will personally invite himself into your computer to sing your praises. Based Huey Long. Every Man a King.",
+	  "ApplicableVersion": "any",
+	  "RepoUrl": "https://github.com/Pedromex2007/HueyCrits",
+	  "Tags": [
+		"huey",
+		"plugin",
+	  ]
+	  "DalamudApiLevel": 10,
+	  "LoadPriority": 0,
+	  "IsHide": false,
+	  "IsTestingExclusive": false,
+	  "DownloadLinkInstall": "https://github.com/Pedromex2007/HueyCrits/releases/download/RC/latest.zip",
+	  "DownloadLinkTesting": "https://github.com/Pedromex2007/HueyCrits/releases/download/RC/latest.zip",
+	  "DownloadLinkUpdate": "https://github.com/Pedromex2007/HueyCrits/releases/download/RC/latest.zip",
+	  "DownloadCount": 0,
+	  "LastUpdate": "0"
+	  "IconUrl": "https://raw.githubusercontent.com/Pedromex2007/HueyCrits/master/Data/icon.png"
+	}
+]
