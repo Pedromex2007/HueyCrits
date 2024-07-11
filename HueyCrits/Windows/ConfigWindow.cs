@@ -41,10 +41,10 @@ public class ConfigWindow : Window, IDisposable
     public override void Draw()
     {
         // can't ref a property, so use a local copy
-        var configValue = Configuration.SomePropertyToBeSavedAndWithADefault;
-        if (ImGui.Checkbox("Random Config Bool", ref configValue))
+        var configValue = Configuration.SoundEnabled;
+        if (ImGui.Checkbox("Enabled Huey speech clips on crit.", ref configValue))
         {
-            Configuration.SomePropertyToBeSavedAndWithADefault = configValue;
+            Configuration.SoundEnabled = configValue;
             // can save immediately on change, if you don't want to provide a "Save and Close" button
             Configuration.Save();
         }

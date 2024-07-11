@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.IO;
 using FFXIVClientStructs.FFXIV.Client.Graphics.Render;
 using FFXIVClientStructs.FFXIV.Client.System.Framework;
+using System.Media;
 
 namespace HueyCrits.Windows
 {
@@ -22,9 +23,11 @@ namespace HueyCrits.Windows
             Flags = ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoCollapse | ImGuiWindowFlags.NoScrollbar | ImGuiWindowFlags.NoScrollWithMouse | ImGuiWindowFlags.NoTitleBar | ImGuiWindowFlags.NoBackground
                 | ImGuiWindowFlags.NoBringToFrontOnFocus | ImGuiWindowFlags.NoMouseInputs;
 
+            
+            OnOpenSfxId = 0;
             Position = new Vector2(GetGameResolution().Item1 / 4, 0);
             Size = new Vector2(7000, 7000);
-            //imgHueyPath = imgPath;
+
             imgHueyPath = Path.Combine(Plugin.PluginInterface.AssemblyLocation.Directory?.FullName!, "huey1.png");
 
         }
@@ -56,11 +59,17 @@ namespace HueyCrits.Windows
         public void SelectHueyPicture()
         {
             Random r = new Random();
-            int rInt = r.Next(1, 3);
+            int rInt = r.Next(1, 4);
             ImgNum = rInt;
             imgHueyPath = Path.Combine(Plugin.PluginInterface.AssemblyLocation.Directory?.FullName!, "huey" + ImgNum + ".png");
         }
-
+        public void PlayRandomHueyClip()
+        {
+            Random r = new Random();
+            int rInt = r.Next(1, 4);
+            string soundPath = Path.Combine(Plugin.PluginInterface.AssemblyLocation.Directory?.FullName!, "hueyspeech" + rInt + ".wav");
+            SoundEngine.PlaySound(soundPath);
+        }
 
         public override void Draw()
         {

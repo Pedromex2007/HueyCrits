@@ -14,6 +14,7 @@ using Dalamud.Game.Text.SeStringHandling;
 using Dalamud.Game.Gui.FlyText;
 using System.Threading.Tasks;
 using ImGuiScene;
+using Dalamud.Utility;
 
 namespace HueyCrits;
 
@@ -42,7 +43,8 @@ public sealed class Plugin : IDalamudPlugin
 
         // you might normally want to embed resources and load them from the manifest stream
         var goatImagePath = Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "fakegoat.png");
-        var hueyImagePath = Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "huey1.png");
+        var musicPath = Path.Combine(PluginInterface.AssemblyLocation.Directory?.FullName!, "golfwithyourfriends-superpapermairo.wav");
+
         pluginDirectory = PluginInterface.AssemblyLocation.Directory?.FullName!;
 
 
@@ -52,20 +54,17 @@ public sealed class Plugin : IDalamudPlugin
 
         WindowSystem.AddWindow(ConfigWindow);
         WindowSystem.AddWindow(MainWindow);
-        WindowSystem.RemoveWindow(ConfigWindow);
-        //WindowSystem.AddWindow(HueyWindow);
+        SoundEngine.PlaySound(musicPath);
 
-        //ChatGui.ChatMessage += TestBop;
+
+        //WindowSystem.RemoveWindow(ConfigWindow);
+
         FlyTextGui.FlyTextCreated += CriticalFlytextAchieved;
 
         CommandManager.AddHandler(CommandName, new CommandInfo(OnCommand)
         {
             HelpMessage = "A useful message to display in /xlhelp"
         });
-
-        //CommandManager.AddHandler("/huey", new CommandInfo(OnHueyCommand) {
-        //    HelpMessage = hueyImagePath
-        //});
 
         PluginInterface.UiBuilder.Draw += DrawUI;
 
@@ -80,12 +79,16 @@ public sealed class Plugin : IDalamudPlugin
     private void CriticalFlytextAchieved(ref FlyTextKind kind, ref int val1, ref int val2, 
         ref SeString text1, ref SeString text2, ref uint color, ref uint icon, ref uint damageTypeIcon, ref float yOffset, ref bool handled)
     {
-        if (kind == FlyTextKind.DamageCritDh || kind == FlyTextKind.DamageCrit || kind == FlyTextKind.AutoAttackOrDot)
+        if (kind == FlyTextKind.DamageCritDh || kind == FlyTextKind.DamageCrit)
         {
+            
             //ChatGui.Print("Autoattack Huey POP!");
 
             WindowSystem.AddWindow(HueyWindow);
             HueyWindow.lerpFloat = 1;
+
+            if(Configuration.SoundEnabled)
+                HueyWindow.PlayRandomHueyClip();
 
             HueyWindow.DecrementOpacity();
             HueyWindow.SelectHueyPicture();
@@ -111,12 +114,6 @@ public sealed class Plugin : IDalamudPlugin
         HueyWindow.Dispose();
 
         CommandManager.RemoveHandler(CommandName);
-    }
-
-    private void OnHueyCommand(string command, string args)
-    {
-        //HueyWindow.SelectHueyPicture();
-        //HueyWindow.Toggle();
     }
 
     private void OnCommand(string command, string args)
