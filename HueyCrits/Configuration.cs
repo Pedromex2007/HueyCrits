@@ -9,6 +9,7 @@ public class Configuration : IPluginConfiguration
 {
     public int Version { get; set; } = 0;
 
+    public float GlobalSoundVolume = 1f;
     public bool IsConfigWindowMovable { get; set; } = true;
     public bool SoundEnabled { get; set; } = true;
 

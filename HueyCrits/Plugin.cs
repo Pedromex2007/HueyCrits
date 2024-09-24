@@ -86,7 +86,7 @@ public sealed class Plugin : IDalamudPlugin
             HueyWindow.lerpFloat = 1;
 
             if(Configuration.SoundEnabled)
-                HueyWindow.PlayRandomHueyClip();
+                HueyWindow.PlayRandomHueyClip(Configuration.GlobalSoundVolume);
 
             HueyWindow.DecrementOpacity();
             HueyWindow.SelectHueyPicture();

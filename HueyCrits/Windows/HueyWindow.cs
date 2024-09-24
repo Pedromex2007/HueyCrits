@@ -63,12 +63,12 @@ namespace HueyCrits.Windows
             ImgNum = rInt;
             imgHueyPath = Path.Combine(Plugin.PluginInterface.AssemblyLocation.Directory?.FullName!, "huey" + ImgNum + ".png");
         }
-        public void PlayRandomHueyClip()
+        public void PlayRandomHueyClip(float volume)
         {
             Random r = new Random();
             int rInt = r.Next(1, 4);
             string soundPath = Path.Combine(Plugin.PluginInterface.AssemblyLocation.Directory?.FullName!, "hueyspeech" + rInt + ".wav");
-            SoundEngine.PlaySound(soundPath);
+            SoundEngine.PlaySound(soundPath, volume);
         }
 
         public override void Draw()

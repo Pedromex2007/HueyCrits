@@ -8,6 +8,7 @@ namespace HueyCrits.Windows;
 public class ConfigWindow : Window, IDisposable
 {
     private Configuration Configuration;
+    float gloVolume = 1f;
 
     // We give this window a constant ID using ###
     // This allows for labels being dynamic, like "{FPS Counter}fps###XYZ counter window",
@@ -42,6 +43,14 @@ public class ConfigWindow : Window, IDisposable
     {
         // can't ref a property, so use a local copy
         var configValue = Configuration.SoundEnabled;
+
+        //ImGui.sli
+        if(ImGui.SliderFloat("Audio Volume.", ref gloVolume, 0f, 1f))
+        {
+            Configuration.GlobalSoundVolume = gloVolume;
+            Configuration.Save();
+        }
+
         if (ImGui.Checkbox("Enable Huey speech clips on crit.", ref configValue))
         {
             Configuration.SoundEnabled = configValue;
